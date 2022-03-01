@@ -43,7 +43,7 @@ java_library(
         "@maven//:com_github_JetBrains_Exposed_exposed_core",
         "@maven//:com_github_JetBrains_Exposed_exposed_jdbc",
         "@maven//:org_postgresql_postgresql",
-		"@maven//:org_json_json",
+
 
         # Logging
         "@maven//:org_slf4j_slf4j_api",
