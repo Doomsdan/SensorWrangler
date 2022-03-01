@@ -13,10 +13,9 @@ import javafx.scene.text.Text
 import javafx.stage.DirectoryChooser
 import javafx.stage.FileChooser
 import javafx.stage.Stage
-import me.danielschaefer.sensorwrangler.base.App
-import me.danielschaefer.sensorwrangler.base.Settings
-import me.danielschaefer.sensorwrangler.data.Picker
-import me.danielschaefer.sensorwrangler.data.Preference
+import me.danielschaefer.sensorwrangler.Picker
+import me.danielschaefer.sensorwrangler.Preference
+import me.danielschaefer.sensorwrangler.Settings
 import mu.KotlinLogging
 import java.io.File
 import kotlin.reflect.KMutableProperty

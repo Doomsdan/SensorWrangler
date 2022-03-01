@@ -1,7 +1,6 @@
 package me.danielschaefer.sensorwrangler.recording
 
-import me.danielschaefer.sensorwrangler.data.Measurement
-import me.danielschaefer.sensorwrangler.data.Recorder
+import me.danielschaefer.sensorwrangler.Measurement
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.StdOutSqlLogger

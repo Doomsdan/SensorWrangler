@@ -1,4 +1,4 @@
-package me.danielschaefer.sensorwrangler.util
+package me.danielschaefer.sensorwrangler
 
 import java.time.Instant
 import java.time.ZoneId
