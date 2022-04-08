@@ -18,14 +18,29 @@ class Measurement(val sensor: VirtualSensor, val indexInSensor: Int, val unit: U
     // TODO: Why/when would it be null?
     var description: String? = null
     var startDate: Long? = null
+    var endDate: Long? = null
+    var maximalValue: Double? = null
+    var minimalValue: Double? = null
 
     // TODO: Create something like the ReadonlyBooleanproperty a ImmutableObversableList
     val dataPoints: ObservableList<DataPoint> = FXCollections.observableList(mutableListOf())
 
     private fun addDataPoint(point: DataPoint) {
-        if (startDate == null)
+        if (startDate == null) {
             startDate = point.timestamp
-
+        }else {
+            endDate = point.timestamp
+        }
+        if (maximalValue == null) {
+            maximalValue = point.value
+            minimalValue = point.value
+        }
+        if (maximalValue!! < point.value) {
+            maximalValue = point.value
+        }
+        if (minimalValue!! > point.value) {
+            minimalValue = point.value
+        }
         dataPoints.add(point)
     }
 
@@ -35,6 +50,11 @@ class Measurement(val sensor: VirtualSensor, val indexInSensor: Int, val unit: U
 
     fun addDataPoint(value: Double) {
         addDataPoint(Date().time, value)
+    }
+
+    fun getTimeFrame(): Int{
+        println(startDate)
+        return startDate!!.toInt() - endDate!!.toInt()
     }
 
     override fun toString(): String {

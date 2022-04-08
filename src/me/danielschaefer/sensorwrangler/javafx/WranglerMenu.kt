@@ -8,12 +8,7 @@ import javafx.scene.control.MenuItem
 import javafx.stage.FileChooser
 import javafx.stage.Stage
 import me.danielschaefer.sensorwrangler.base.App
-import me.danielschaefer.sensorwrangler.javafx.popups.AboutPopup
-import me.danielschaefer.sensorwrangler.javafx.popups.AddAveragePopup
-import me.danielschaefer.sensorwrangler.javafx.popups.AddChartPopup
-import me.danielschaefer.sensorwrangler.javafx.popups.AddSensorPopup
-import me.danielschaefer.sensorwrangler.javafx.popups.Alert
-import me.danielschaefer.sensorwrangler.javafx.popups.StartRecordingPopup
+import me.danielschaefer.sensorwrangler.javafx.popups.*
 import me.danielschaefer.sensorwrangler.javafx.popups.test.DataPointsExporter
 import java.util.*
 
@@ -146,9 +141,34 @@ fun createMenuBar(primaryStage: Stage): MenuBar {
 
                 }
             }
+            val exportnewDataPoints = MenuItem("Data Points takes").apply {
+                onAction = EventHandler {
+                    DataPointsExporter().extractnewDataPoints()
+
+                }
+            }
+            items.add(exportnewDataPoints)
             items.add(exportDataPoints)
         }
 
+        val analysisMenu = Menu("Analysis").apply {
+            items.add(
+                MenuItem("Add").apply {
+                    onAction = EventHandler {
+                        AddAnalysisPopup(primaryStage)
+                    }
+                }
+            )
+            items.add(
+                MenuItem("Manage All").apply {
+                    onAction = EventHandler {
+                        SettingsWindow(primaryStage).apply {
+                            tabPane.selectionModel.select(this.analysisTab)
+                        }
+                    }
+                }
+            )
+        }
         menus.add(fileMenu)
         menus.add(recordingMenu)
         menus.add(sensorMenu)
@@ -156,6 +176,7 @@ fun createMenuBar(primaryStage: Stage): MenuBar {
         menus.add(averageMenu)
         menus.add(helpMenu)
         menus.add(testMenu)
+        menus.add(analysisMenu)
     }
 }
 

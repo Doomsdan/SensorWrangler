@@ -54,6 +54,15 @@ class SensorWrangler {
             }
         )
     }
+    val analysis: ObservableList<Chart> = FXCollections.observableList(mutableListOf<Chart>()).apply {
+        addListener(
+            ListChangeListener {
+                it.next()
+                // Remove chart from UI, when it's removed
+                it.removed.forEach { chart -> chart.hideAll() }
+            }
+        )
+    }
 
     private val recorders: MutableList<Recorder> = mutableListOf()
     private var recordingListeners: MutableList<ListChangeListener<DataPoint>> = mutableListOf()

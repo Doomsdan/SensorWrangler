@@ -12,6 +12,7 @@ class SettingsWindow(val parentStage: Stage) : Stage() {
     val tabPane: TabPane
     val sensorTab: Tab
     val chartTab: Tab
+    val analysisTab: Tab
     val preferencesTab: Tab
 
     init {
@@ -22,8 +23,9 @@ class SettingsWindow(val parentStage: Stage) : Stage() {
                 sensorTab = SensorTab(this@SettingsWindow)
                 chartTab = ChartTab(this@SettingsWindow)
                 preferencesTab = PreferencesTab(this@SettingsWindow)
+                analysisTab = AnalysisTab(this@SettingsWindow)
 
-                tabs.addAll(sensorTab, chartTab, preferencesTab)
+                tabs.addAll(sensorTab, chartTab, preferencesTab, analysisTab)
 
                 // TODO: Do using CSS .tab-pane > .tab-content-area > * { -fx-padding: 25; }
                 val insets = Insets(25.0)
