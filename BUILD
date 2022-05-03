@@ -53,6 +53,7 @@ java_library(
         "@maven//:org_openjfx_javafx_base",
         "@maven//:org_openjfx_javafx_graphics",
         "@maven//:org_openjfx_javafx_controls",
+		"@maven//:org_openjfx_javafx_fxml",
     ] + select({
         "@platforms//os:linux": [
             "@maven//:org_openjfx_javafx_base_linux",

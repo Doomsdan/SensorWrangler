@@ -159,15 +159,6 @@ fun createMenuBar(primaryStage: Stage): MenuBar {
                     }
                 }
             )
-            items.add(
-                MenuItem("Manage All").apply {
-                    onAction = EventHandler {
-                        SettingsWindow(primaryStage).apply {
-                            tabPane.selectionModel.select(this.analysisTab)
-                        }
-                    }
-                }
-            )
         }
         menus.add(fileMenu)
         menus.add(recordingMenu)

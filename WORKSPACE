@@ -46,6 +46,7 @@ maven_install(
         "org.jetbrains.kotlin:kotlin-reflect:1.5.0",
 
         "org.openjfx:javafx-base:11.0.1",
+		"org.openjfx:javafx-fxml:11.0.1",
         "org.openjfx:javafx-base:win:11.0.1",
         "org.openjfx:javafx-base:linux:11.0.1",
         "org.openjfx:javafx-base:mac:11.0.1",
