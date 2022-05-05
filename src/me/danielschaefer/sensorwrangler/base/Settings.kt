@@ -5,7 +5,10 @@ import me.danielschaefer.sensorwrangler.data.Picker
 import me.danielschaefer.sensorwrangler.data.Preference
 import me.danielschaefer.sensorwrangler.data.Recorder
 import me.danielschaefer.sensorwrangler.data.VirtualSensor
+import java.io.File
+import java.nio.file.Path
 import java.nio.file.Paths
+import kotlin.io.path.isDirectory
 import kotlin.reflect.KClass
 
 /**
@@ -42,6 +45,8 @@ open class Settings {
     )
     var recordingDirectory: String = Paths.get("").toAbsolutePath().toString()
 
+
+
     @Preference(
         "Rows in chart grid",
         explanation = "How many rows of charts the grid has. Takes effect only after app restart."
@@ -68,4 +73,10 @@ open class Settings {
 
     // TODO: Make overridable by cmdline param or environment variable
     val configPath: String = "wrangler.settings"
+
+    @Preference(
+        "Default Data directory",
+        explanation = "Which repository the data is stored in"
+    )
+    var dataDirectory: String = Paths.get("..","data").toAbsolutePath().toString()
 }
